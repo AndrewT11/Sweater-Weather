@@ -9,13 +9,34 @@
 </head>
 <body>
     <div class="header"><h1>Weather Dashboard</h1></div>
-    <div class="search-container">
-        <h1>Search for a City: </h1>
-        <input type="text" id="inputBox">
-        <button id="searchBtn">Search</button>
-    </div>
-    <div id="searchPost"></div>
+    <div class="body-container">
+        <div class="search-container">
+            <h1>Search for a City: </h1>
+            <input type="text" id="inputBox">
+            <button id="searchBtn">Search</button>
+            <div id="searchPost">Searched cities will append here</div>
+        </div>
+        <div id="forecastInfo">
+            <div class="city-info">City divs have been setup
+                <div id="cityDate"></div>
+                <div id="currentTemp"></div>
+                <div id="currentWind"></div>
+                <div id="currentHumidity"></div>
+                <div id="currentUV"></div>
+                <div id="uvColorDisplay"></div>
+            </div>
+            <h2 id="forecastHeader">5-Day Forecast: </h2>
+            <div id="futureForecast">
+                <div class="forecastBox" id="box1">date</div>
+                <div class="forecastBox" id="box2">date</div>
+                <div class="forecastBox" id="box3">date</div>
+                <div class="forecastBox" id="box4">date</div>
+                <div class="forecastBox" id="box5">date</div>
 
+            </div> 
+        </div>   
+    </div>
+     
 
     <script src="script.js"></script>
 </body>
