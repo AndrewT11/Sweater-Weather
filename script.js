@@ -1,33 +1,23 @@
 var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
 
-// fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
-
-//     .then(function (response) {
-//         return response.json()
-//     })
-//     .then(function(data) {
-//         console.log(data);
-//     });
-
-
-
 //search input value
 function currentWeather() {
 fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey)
     .then(function (response) {
+        if(response.ok) {
         return response.json()
+        }
     })
-    .then(function(data) {
-        console.log(data);
-        citySearch.innerHTML = "City: " + inputBoxEl.value;
-        currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
-;
-        currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
-        currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
-        dateEl.innerHTML = "Date: " +moment().format('MMM Do YYYY');
-        iconEl.innerHTML = data.weather.icon;
+        .then(function(data) {
+            console.log(data);
+            citySearch.innerHTML = "City: " + inputBoxEl.value;
+            currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
+            currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
+            currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
+            dateEl.innerHTML = "Date: " +moment().format('MMM Do YYYY');
+            iconEl.innerHTML = data.weather.icon;
 
-    });
+        });
 
     // currentUvEL.innerHTML = cannot find UV information in city search
     // uvColorDisplay
@@ -62,37 +52,6 @@ var humidity5El = document.getElementById("humidity5")
 
 var inputBoxEl = document.getElementById("inputBox")
 
-//store weather data in weather variable
-
-var weatherBlocks = {
-    date: "9/16/21",
-    iconId: "sunny",
-    temperature: {value: 18, unit: "farenheit"},
-    wind: {value: 8.53, unit: "MPH"},
-    humidity: {value: 66, unit: "%"}
-}
-
-//change innerHTML to selectors to display weather data
-
-function displayWeather() {
-date5El.innerHTML =
-iconEl.innerHTML = `<img src="icons/${weather.iconId.png}"/>`; 
-temp5El.innerHTML = `${weather.temperature.value}°<span>C</span>`
-wind5El.innerHTML =`${weather.wind.value}<span>MPH</span>`
-humidity5El.innerHTML =`${weather.humidity.value}<span>%</span>`
-}
-
-
-
-
-// function weather () {
-
-// }
-
-
-// OpenweatherMap API call by city name:
-
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
 
 
 // This will be how we get names to appear on the populated page 
