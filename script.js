@@ -9,18 +9,26 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
         }
     })
         .then(function(data) {
-            console.log(data);
+            console.log(data.id);
             citySearch.innerHTML = "City: " + inputBoxEl.value;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
             currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
-            dateEl.innerHTML = "Date: " +moment().format('MMM Do YYYY');
-            iconEl.innerHTML = data.weather.icon;
+            dateEl.innerHTML = "Date: " + moment().format('MMM Do YYYY');
+            iconEl.innerHTML = data.weather[0].icon;
+            var cityID = data.id;
 
-        });
-
-    // currentUvEL.innerHTML = cannot find UV information in city search
-    // uvColorDisplay
+            return fetch("https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
+        })
+            .then(function (response) {
+                console.log(response)
+                if(response.ok) {
+                return response.json()
+                }
+            })
+                .then(function(data) {
+                    console.log(data)
+                });
 }
 
 //Buttons
