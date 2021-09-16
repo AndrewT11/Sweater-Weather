@@ -20,11 +20,12 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
     .then(function(data) {
         console.log(data);
         citySearch.innerHTML = "City: " + inputBoxEl.value;
-        currentTempEl.innerHTML = "Temperature(in K): " + data.main.temp;
+        currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
+;
         currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
         currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
-        dateEl.innerHTML = "Date: " +moment().format('MMM Do YY');
-        iconEl.innerHTML = <img src=data.weather.icon></img>;
+        dateEl.innerHTML = "Date: " +moment().format('MMM Do YYYY');
+        iconEl.innerHTML = data.weather.icon;
 
     });
 
