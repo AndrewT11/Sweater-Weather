@@ -1,27 +1,26 @@
 var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
 
-fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
+// fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
 
-// fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey)
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function(data) {
-        console.log(data);
-    });
+//     .then(function (response) {
+//         return response.json()
+//     })
+//     .then(function(data) {
+//         console.log(data);
+//     });
 
 
 
 //search input value
 function currentWeather() {
-
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey)
+console.log("currentWeather Function working?")
+fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey)
     .then(function (response) {
         console.log(response);
         return response.json()
     })
     .then(function(data) {
-        console.log(data);
+        console.log(data.main);
     });
 
     currentTempEl.innerHTML = data.main.temp;
@@ -29,11 +28,11 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textCont
     currentHumidityEl.innerHTML = data.main.humidity;
     // currentUvEL.innerHTML = cannot find UV information in city search
     // uvColorDisplay
-
 }
 
 //Buttons
 var searchButton = document.getElementById("searchBtn")
+searchButton.addEventListener("click", currentWeather)
 
 //selector City current variables
 var dateEl = document.getElementById("cityDate")
@@ -60,11 +59,6 @@ var humidity5El = document.getElementById("humidity5")
 
 var inputBoxEl = document.getElementById("inputBox")
 
-
-// var  = document.getElementById("")
-// var  = document.getElementById("")
-
-
 //store weather data in weather variable
 
 var weatherBlocks = {
@@ -87,12 +81,6 @@ humidity5El.innerHTML =`${weather.humidity.value}<span>%</span>`
 
 
 
-var url = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=e1fa988b28630ad2f63ed66bdf22a5ee"
-
-var cityUrl = "https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee"
-
-
-searchButton.addEventListener("click". currentWeather)
 
 // function weather () {
 
