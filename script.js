@@ -4,7 +4,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b2
 
 // fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey)
     .then(function (response) {
-        console.log(response);
         return response.json()
     })
     .then(function(data) {
@@ -24,6 +23,12 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textCont
     .then(function(data) {
         console.log(data);
     });
+
+    currentTempEl.innerHTML = data.main.temp;
+    currentWindEl.innerHTML = data.wind.speed;
+    currentHumidityEl.innerHTML = data.main.humidity;
+    // currentUvEL.innerHTML = cannot find UV information in city search
+    // uvColorDisplay
 
 }
 
