@@ -13,21 +13,21 @@ var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
 
 //search input value
 function currentWeather() {
-console.log("currentWeather Function working?")
 fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey)
     .then(function (response) {
         return response.json()
     })
     .then(function(data) {
         console.log(data);
+        citySearch.innerHTML = "City: " + inputBoxEl.value;
+        currentTempEl.innerHTML = "Temperature(in K): " + data.main.temp;
+        currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
+        currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
+        dateEl.innerHTML = "Date: " +moment().format('MMM Do YY');
+        iconEl.innerHTML = <img src=data.weather.icon></img>;
+
     });
 
-    citySearch.innerHTML = inputBoxEl.value;
-    currentTempEl.innerHTML = (data.main.temp).value;
-    currentWindEl.innerHTML = (data.wind.speed).value;
-    currentHumidityEl.innerHTML = (data.main.humidity).value;
-    dateEl.innerHTML = moment().format('MMM Do YY');
-    iconEl.innerHTML = data.weather.icon;
     // currentUvEL.innerHTML = cannot find UV information in city search
     // uvColorDisplay
 }
@@ -44,7 +44,7 @@ var currentHumidityEl = document.getElementById("currentHumidity")
 var uvInfoBox = document.getElementById("uvInfo")
 var currentUvEL = document.getElementById("currentUv")
 var uvColorDisplay = document.getElementById("uvColorDisplay")
-var iconEl = document.getElementById("")
+var iconEl = document.getElementById("icon")
 
 //selector 5-day Forecast Variables
 var box1El = document.getElementById("box1")
