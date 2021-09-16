@@ -9,12 +9,12 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
         }
     })
         .then(function(data) {
-            console.log(data.id);
+            console.log(data);
             
             citySearch.innerHTML = "City: " + inputBoxEl.value;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
-            currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity;
+            currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
             dateEl.innerHTML = "Date: " + moment().format('MMM Do YYYY');
             iconEl.innerHTML = data.weather[0].icon;
             var cityID = data.id;
@@ -29,6 +29,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
             })
                 .then(function(data) {
                     console.log(data)
+
                 });
 }
 
@@ -67,3 +68,48 @@ var inputBoxEl = document.getElementById("inputBox")
 // will need to do localStorage.getItem, setItem for each new search.This
 // localStorage.getItem("city")
 // localStorage.setItem("city", citysearch)
+
+var targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 1);
+var dd = targetDate.getDate();
+var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate.getFullYear();
+var dateString = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString);
+
+var targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 2);
+var dd = targetDate.getDate();
+var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate.getFullYear();
+var dateString = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString);
+
+var targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 3);
+var dd = targetDate.getDate();
+var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate.getFullYear();
+var dateString = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString);
+
+var targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 4);
+var dd = targetDate.getDate();
+var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate.getFullYear();
+var dateString = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString);
+
+var targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 5);
+var dd = targetDate.getDate();
+var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate.getFullYear();
+var dateString = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString);
