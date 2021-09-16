@@ -10,6 +10,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
     })
         .then(function(data) {
             console.log(data.id);
+            
             citySearch.innerHTML = "City: " + inputBoxEl.value;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
