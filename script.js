@@ -16,16 +16,18 @@ function currentWeather() {
 console.log("currentWeather Function working?")
 fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey)
     .then(function (response) {
-        console.log(response);
         return response.json()
     })
     .then(function(data) {
-        console.log(data.main);
+        console.log(data);
     });
 
-    currentTempEl.innerHTML = data.main.temp;
-    currentWindEl.innerHTML = data.wind.speed;
-    currentHumidityEl.innerHTML = data.main.humidity;
+    citySearch.innerHTML = inputBoxEl.value;
+    currentTempEl.innerHTML = (data.main.temp).value;
+    currentWindEl.innerHTML = (data.wind.speed).value;
+    currentHumidityEl.innerHTML = (data.main.humidity).value;
+    dateEl.innerHTML = moment().format('MMM Do YY');
+    iconEl.innerHTML = data.weather.icon;
     // currentUvEL.innerHTML = cannot find UV information in city search
     // uvColorDisplay
 }
