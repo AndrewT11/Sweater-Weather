@@ -1,6 +1,8 @@
-apiKey = e1fa988b28630ad2f63ed66bdf22a5ee
+var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
+
+// fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey)
     .then(function (response) {
         console.log(response);
         return response.json()
@@ -9,12 +11,20 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b2
         console.log(data);
     });
 
-searchButton.addEventListener("click". currentWeather)
+
 
 //search input value
 function currentWeather() {
-var inputBoxEl = document.getElementById("inputBox")
-var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey;
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey)
+    .then(function (response) {
+        console.log(response);
+        return response.json()
+    })
+    .then(function(data) {
+        console.log(data);
+    });
+
 }
 
 //Buttons
@@ -42,6 +52,8 @@ var iconEl = document.getElementById("icon")
 var temp5El = document.getElementById("temp5")
 var wind5El = document.getElementById("wind5")
 var humidity5El = document.getElementById("humidity5")
+
+var inputBoxEl = document.getElementById("inputBox")
 
 
 // var  = document.getElementById("")
@@ -75,6 +87,7 @@ var url = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&e
 var cityUrl = "https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee"
 
 
+searchButton.addEventListener("click". currentWeather)
 
 // function weather () {
 
