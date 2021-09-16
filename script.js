@@ -69,47 +69,48 @@ var inputBoxEl = document.getElementById("inputBox")
 // localStorage.getItem("city")
 // localStorage.setItem("city", citysearch)
 
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 1);
-var dd = targetDate.getDate();
-var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
-var yyyy = targetDate.getFullYear();
-var dateString = mm + "/" + dd + "/" + yyyy;
+var targetDate1 = new Date();
+targetDate1.setDate(targetDate1.getDate() + 1);
+var dd = targetDate1.getDate();
+var mm = targetDate1.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate1.getFullYear();
+var dateString1 = mm + "/" + dd + "/" + yyyy;
 // So you can see the output
-alert(dateString);
+alert(dateString1);
 
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 2);
-var dd = targetDate.getDate();
-var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
-var yyyy = targetDate.getFullYear();
-var dateString = mm + "/" + dd + "/" + yyyy;
-// So you can see the output
-alert(dateString);
 
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 3);
-var dd = targetDate.getDate();
-var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
-var yyyy = targetDate.getFullYear();
-var dateString = mm + "/" + dd + "/" + yyyy;
+var targetDate2 = new Date();
+targetDate2.setDate(targetDate2.getDate() + 2);
+var dd = targetDate2.getDate();
+var mm = targetDate2.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate2.getFullYear();
+var dateString2 = mm + "/" + dd + "/" + yyyy;
 // So you can see the output
-alert(dateString);
+alert(dateString2);
 
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 4);
-var dd = targetDate.getDate();
-var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
-var yyyy = targetDate.getFullYear();
-var dateString = mm + "/" + dd + "/" + yyyy;
+var targetDate3 = new Date();
+targetDate3.setDate(targetDate3.getDate() + 3);
+var dd = targetDate3.getDate();
+var mm = targetDate3.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate3.getFullYear();
+var dateString3 = mm + "/" + dd + "/" + yyyy;
 // So you can see the output
-alert(dateString);
+alert(dateString3);
 
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 5);
-var dd = targetDate.getDate();
-var mm = targetDate.getMonth() + 1; // 0 is January, so we must add 1
-var yyyy = targetDate.getFullYear();
-var dateString = mm + "/" + dd + "/" + yyyy;
+var targetDate4 = new Date();
+targetDate4.setDate(targetDate4.getDate() + 4);
+var dd = targetDate4.getDate();
+var mm = targetDate4.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate4.getFullYear();
+var dateString4 = mm + "/" + dd + "/" + yyyy;
 // So you can see the output
-alert(dateString);
+alert(dateString4);
+
+var targetDate5 = new Date();
+targetDate5.setDate(targetDate5.getDate() + 5);
+var dd = targetDate5.getDate();
+var mm = targetDate5.getMonth() + 1; // 0 is January, so we must add 1
+var yyyy = targetDate5.getFullYear();
+var dateString5 = mm + "/" + dd + "/" + yyyy;
+// So you can see the output
+alert(dateString5);
