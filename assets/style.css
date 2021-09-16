@@ -58,6 +58,18 @@ body {
     border: none;
 }
 
+#uvinfo {
+    display: flex;
+}
+
+#currentUV {
+
+}
+
+#uvColorDisplay {
+    
+}
+
 #futureForecast {
     display: inline-flex;
 }

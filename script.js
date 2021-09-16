@@ -1,4 +1,24 @@
-// api key = e1fa988b28630ad2f63ed66bdf22a5ee
+apiKey = e1fa988b28630ad2f63ed66bdf22a5ee
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
+    .then(function (response) {
+        console.log(response);
+        return response.json()
+    })
+    .then(function(data) {
+        console.log(data);
+    });
+
+searchButton.addEventListener("click". currentWeather)
+
+//search input value
+function currentWeather() {
+var inputBoxEl = document.getElementById("inputBox")
+var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.textContent + "&appid=" + apiKey;
+}
+
+//Buttons
+var searchButton = document.getElementById("searchBtn")
 
 //selector City current variables
 var dateEl = document.getElementById("cityDate")
@@ -40,7 +60,7 @@ var weatherBlocks = {
 
 //change innerHTML to selectors to display weather data
 
-displayWeather () {
+function displayWeather() {
 date5El.innerHTML =
 iconEl.innerHTML = `<img src="icons/${weather.iconId.png}"/>`; 
 temp5El.innerHTML = `${weather.temperature.value}°<span>C</span>`
@@ -52,29 +72,9 @@ humidity5El.innerHTML =`${weather.humidity.value}<span>%</span>`
 
 var url = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=e1fa988b28630ad2f63ed66bdf22a5ee"
 
-var url2 = "https://openweathermap.org/api/one-call-api"
-
-// fetch(url)
-//     .then(response)
-//         .then(data) {
-//         console.log(data)
-//         };
-
-fetch(url)
-    .then(response) {
-        return response.json()
-    }
-    .then(data) {
-        console.log(data)
-    }
+var cityUrl = "https://api.openweathermap.org/data/2.5/weather?q=Detroit&appid=e1fa988b28630ad2f63ed66bdf22a5ee"
 
 
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-            })
 
 // function weather () {
 
@@ -90,19 +90,3 @@ fetch(url)
 // will need to do localStorage.getItem, setItem for each new search.This
 // localStorage.getItem("city")
 // localStorage.setItem("city", citysearch)
-
-// var buttonClickHandler = function (event) {
-//     // What is `event.target` referencing?
-//     // TODO: Write your answer here
-//     // the data-language attribute in the buttons
-//     var language = event.target.getAttribute('data-language');
-  
-//     // Why is this `if` block in place?
-//     // TODO: Write your answer here
-//     // If there is a language selected, then we will get the repos for that language from the api website
-//     if (language) {
-//       getFeaturedRepos(language);
-  
-//       repoContainerEl.textContent = '';
-//     }
-//   };
