@@ -14,7 +14,7 @@ body {
 }
 
 .body-container {
-    display: inline-flex;
+    display: flex;
     width: 100%;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .city-info {
-    width: 98%;
+    width: 95%;
     border: 1px solid black;
     margin: 8px;
     height: 40vh;
