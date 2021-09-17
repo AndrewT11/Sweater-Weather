@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="header"><h1>Weather Dashboard</h1></div>
-    <div class="body-container">
+    <section class="body-container">
         <div class="search-container">
             <h1>Search for a City: </h1>
             <input type="text" id="inputBox">
             <button type="submit" id="searchBtn">Search</button>
             <div id="searchPost">Searched cities will append here</div>
         </div>
-        <div id="forecastInfo">
+        <section id="forecastInfo">
             <div class="city-info">
                 <h1 id="citySearch"></h1>
                 <h2 id="cityDate"></h2>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <h2 id="forecastHeader">5-Day Forecast: </h2>
-            <div id="futureForecast">
+            <section id="futureForecast">
                 <div class="forecastBox" id="box1">
                     <h2 class="date">date</h2>
                     <img class="forecastIcon" src=""></img>
@@ -68,9 +68,9 @@
                     <h3 class="forecastHumidity"></h3>
 
                 </div>
-            </div> 
-        </div>   
-    </div>
+            </section> 
+        </section>   
+    </section>
      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
