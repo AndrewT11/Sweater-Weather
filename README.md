@@ -40,20 +40,25 @@ THEN I am again presented with current and future conditions for that city<br>
 ## Screenshot
 ![Weather Demo](assets/sweater-weather.gif)
 
+## Issues
+* Past search history not shown
+* icons for weather do not appear
+
 
 ## Links
 * [Deployed Website Link](https://andrewt11.github.io/Sweater-Weather/)
 * [Code Repository Link](https://github.com/AndrewT11/Sweater-Weather)
 
 ## Credits
-Marie Morris
+Andrew Tran
 
 ### Resources
 
 * https://www.w3schools.com/
 * https://developer.mozilla.org/en-US/
 * https://choosealicense.com/
-* 
+* https://openweathermap.org/
+* https://www.stackoverflow.com
 
 
 
