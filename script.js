@@ -1,9 +1,10 @@
 var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
-
+var city = inputBoxEl.value.trim();
 
 function currentWeather() {
 
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey)
+fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey)
+console.log("city");
     .then(function (response) {
         if(response.ok) {
         return response.json()
@@ -12,12 +13,20 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
         .then(function(data) {
             console.log(data);
             
-            citySearch.innerHTML = "City: " + inputBoxEl.value;
+            citySearch.innerHTML = "City: " + city;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed;
             currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
             dateEl.innerHTML = "Date: " + moment().format('MMM Do YYYY');
-            iconEl.innerHTML = data.weather[0].icon;
+            // icon = data.weather[0].icon;
+            var { description, icon } = data.weather[0];
+            var iconImg = document.getElementById('icon');
+            iconImg.src = iconUrl;
+            var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+
+
+            //needed for 5-day forecast. Can only be called by city ID, not name.
             var cityID = data.id;
 
             return fetch("https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=e1fa988b28630ad2f63ed66bdf22a5ee")
@@ -55,12 +64,14 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
 }
 
 // var citiesSearched = localStorage.getItem("citiesSearched");
-// citiesSearched = JSON.parse(citiesSearched)
+//     citiesSearched.textContent = inputBoxEl.value;
+//     citiesSearched = JSON.parse(citiesSearched)
+//     localStorage.setItem("citiesSearched", citiesSearched);
 
 // if(citiesSearched !==null) {
-// //     for(var i = 0; i < citiesSearched.length; i++) {
+//     for(var i = 0; i < citiesSearched.length; i++) {
 //         var createBtn = document.createElement("button");
-//         createBtn.textContent = inputBoxEl.value;
+//          createBtn.textContent = inputBoxEl.value;
 //         searchPostAppend.appendChild(createBtn);
 //     }
 // }
