@@ -38,27 +38,27 @@ console.log("city");
             })
                 .then(function(data) {
                     console.log(data)
-                
+                 
                 //5-day forecast code
                 box1Temp.innerHTML = "Temperature: " + Math.floor(data.list[4].main.temp*(9/5)-459.67) + "°F";
-                box1Wind.innerHTML = "Wind Speed: " + data.list[4].wind.speed;
-                box1Humidity.innerHTML = "Humidity: " + data.list[4].main.humidity;
+                box1Wind.innerHTML = "Wind Speed: " + data.list[4].wind.speed + "mph";
+                box1Humidity.innerHTML = "Humidity: " + data.list[4].main.humidity + "%";
                 box1Icon.innerHTML = data.list[4].weather[0].icon;
                 box2Temp.innerHTML = "Temperature: " + Math.floor(data.list[12].main.temp*(9/5)-459.67) + "°F";
-                box2Wind.innerHTML = "Wind Speed: " + data.list[12].wind.speed;
-                box2Humidity.innerHTML = "Humidity: " + data.list[12].main.humidity;
+                box2Wind.innerHTML = "Wind Speed: " + data.list[12].wind.speed + "mph";
+                box2Humidity.innerHTML = "Humidity: " + data.list[12].main.humidity + "%";
                 // box2Icon.innerHTML = data.list[12].weather[0].icon;
                 box3Temp.innerHTML = "Temperature: " + Math.floor(data.list[20].main.temp*(9/5)-459.67) + "°F";
-                box3Wind.innerHTML = "Wind Speed: " + data.list[20].wind.speed;
-                box3Humidity.innerHTML = "Humidity: " + data.list[20].main.humidity;
+                box3Wind.innerHTML = "Wind Speed: " + data.list[20].wind.speed + "mph";
+                box3Humidity.innerHTML = "Humidity: " + data.list[20].main.humidity + "%";
                 box3Icon.innerHTML = data.list[20].weather[0].icon;
                 box4Temp.innerHTML = "Temperature: " + Math.floor(data.list[28].main.temp*(9/5)-459.67) + "°F";
-                box4Wind.innerHTML = "Wind Speed: " + data.list[28].wind.speed;
-                box4Humidity.innerHTML = "Humidity: " + data.list[28].main.humidity;
+                box4Wind.innerHTML = "Wind Speed: " + data.list[28].wind.speed + "mph";
+                box4Humidity.innerHTML = "Humidity: " + data.list[28].main.humidity + "%";
                 box4Icon.innerHTML = data.list[28].weather[0].icon;
                 box5Temp.innerHTML = "Temperature: " + Math.floor(data.list[36].main.temp*(9/5)-459.67) + "°F";
-                box5Wind.innerHTML = "Wind Speed: " + data.list[36].wind.speed;
-                box5Humidity.innerHTML = "Humidity: " + data.list[36].main.humidity;
+                box5Wind.innerHTML = "Wind Speed: " + data.list[36].wind.speed + "mph";
+                box5Humidity.innerHTML = "Humidity: " + data.list[36].main.humidity + "%";
                 box5Icon.innerHTML = data.list[36].weather[0].icon;         
                 });
 }
