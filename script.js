@@ -62,18 +62,36 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
                 });
 }
 
-// var citiesSearched = localStorage.getItem("citiesSearched");
-//     citiesSearched.textContent = inputBoxEl.value;
-//     citiesSearched = JSON.parse(citiesSearched)
-//     localStorage.setItem("citiesSearched", citiesSearched);
+// localStorage
+var inputBoxEl = document.getElementById("inputBox")
+var searchButton = document.getElementById("searchBtn")
+var searchPostAppend = document.getElementById("searchPost")
 
-// if(citiesSearched !==null) {
-//     for(var i = 0; i < citiesSearched.length; i++) {
-//         var createBtn = document.createElement("button");
-//          createBtn.textContent = inputBoxEl.value;
-//         searchPostAppend.appendChild(createBtn);
-//     }
-// }
+var storageInput = inputBoxEl.value
+
+var saveToLocalStorage = function () {
+    localStorage.setItem("storedSearch", storageInput)
+}
+searchButton.addEventListener("click", saveToLocalStorage)
+
+var storedInput = localStorage.getItem("storedSearch")
+
+//Buttons
+var searchButton = document.getElementById("searchBtn")
+searchButton.addEventListener("click", currentWeather)
+
+var searchPostAppend = document.getElementById("searchPost")
+
+if (storage) {
+    storedInput.forEach(element => {
+    liEl.textContent = storedInput;
+
+    var ulEl = document.createElement("ul")
+    var liEl = document.createElement('li')
+    searchPostAppend.appendChild('ulEl')
+    ulEl.appendChild('li')
+})
+}
 
 
 //Buttons
