@@ -62,28 +62,28 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
                 });
 }
 
-// localStorage
-var inputBoxEl = document.getElementById("inputBox")
-var searchButton = document.getElementById("searchBtn")
-var searchPostAppend = document.getElementById("searchPost")
+// // localStorage
+// var inputBoxEl = document.getElementById("inputBox")
+// var searchButton = document.getElementById("searchBtn")
+// var searchPostAppend = document.getElementById("searchPost")
 
 var storageInput = inputBoxEl.value
 
 var saveToLocalStorage = function () {
     localStorage.setItem("storedSearch", storageInput)
 }
-searchButton.addEventListener("click", saveToLocalStorage)
 
 var storedInput = localStorage.getItem("storedSearch")
 
 //Buttons
 var searchButton = document.getElementById("searchBtn")
 searchButton.addEventListener("click", currentWeather)
+searchButton.addEventListener("click", saveToLocalStorage)
 
 var searchPostAppend = document.getElementById("searchPost")
 
-if (storage) {
-    storedInput.forEach(element => {
+if (storageInput) {
+    storedInput.forEach(function() {
     liEl.textContent = storedInput;
 
     var ulEl = document.createElement("ul")
