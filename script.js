@@ -1,9 +1,9 @@
 var apiKey = "e1fa988b28630ad2f63ed66bdf22a5ee";
 
 
-function currentWeather() {
-
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + "&appid=" + apiKey) 
+function currentWeather(city = inputBoxEl.value) {
+console.log(city)
+fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey) 
     .then(function (response) {
         if(response.ok) {
         return response.json()
@@ -12,7 +12,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
         .then(function(data) {
             console.log(data);
             
-            citySearch.innerHTML = "City: " + inputBoxEl.value;
+            citySearch.innerHTML = "City: " + city;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed + " mph";
             currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
@@ -62,43 +62,85 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputBoxEl.value + 
                 });
 }
 
-// // localStorage
-// var inputBoxEl = document.getElementById("inputBox")
-// var searchButton = document.getElementById("searchBtn")
+///////////////////////////// localStorage
+var inputBoxEl = document.getElementById("inputBox")
+var searchButton = document.getElementById("searchBtn")
 // var searchPostAppend = document.getElementById("searchPost")
 
-var storageInput = inputBoxEl.value
+//Yacob
+let weatherHistory = localStorage.getItem('storedSearch')
+// localStorage.removeItem("storedSearch")
 
+//appending blank lists to DOM Yacob
+for(let i = 0; i < 10; i++){
+    let li = document.createElement("li");
+    li.setAttribute("style", "list-style : none; background-color: lightgrey")
+    li.setAttribute("id", "listItems")
+
+    //This makes each list item an event listener that will run currentWeather with the innertext of what you clicked. In this case, the city you clicked on, the innnerText is a previous search. Thus, you are searching for the previous post from before.
+    li.addEventListener("click", (event) => {
+        currentWeather(event.target.innerText)
+    })
+
+    document.getElementById("searchPost").appendChild(li)
+}
+//Yacob
 var saveToLocalStorage = function () {
-    localStorage.setItem("storedSearch", storageInput)
+    var storageInput = inputBoxEl.value
+    // inputBoxEl.value = ''
+    //if there is a history, we will append storageInput to the weatherHistory
+    if(weatherHistory){
+        localStorage.setItem("storedSearch", storageInput + " " + weatherHistory )
+        weatherHistory = localStorage.getItem('storedSearch')
+        //otherwise, begin fresh with a storageInput set into localStorage
+    }else{
+        localStorage.setItem("storedSearch", storageInput)
+    }
+
+    console.log(localStorage.getItem("storedSearch"))
+    console.log(weatherHistory.split(" "))
+    let historyDiv = document.getElementById("searchPost")
+    let historyArray = weatherHistory.split(" ")
+    
+    for(let i = 0; i < 10; i++ ){
+        if(historyArray.length > i)historyDiv.children[i].innerText = historyArray[i]
+    }
 }
 
-var storedInput = localStorage.getItem("storedSearch")
+// var searchHistory = localStorage.getItem('storedSearch')
+// var saveToLocalStorage = function () {
+//     var storageInput = userInputSport.value
+//     userInputSport.value = '';
+
+//     if(searchHistory){
+//         localtStorage.setItem("storedSearch", storageInput + " " + searchHistory)
+//         searchHistory = localStorage.getItem('storedSearch')
+//     }   
+//         else {
+//             localStorage.setItem("storedSearch", storageInput)
+//         }
+    
+// }
+// searchButton.addEventListener("click", function(){
+//     saveToLocalStorage()
+// })
+
+
 
 //Buttons
 var searchButton = document.getElementById("searchBtn")
-searchButton.addEventListener("click", currentWeather)
-searchButton.addEventListener("click", saveToLocalStorage)
+searchButton.addEventListener("click",(event) => {
+    event.target.innerText
+    currentWeather()
+    saveToLocalStorage()
+} )
+
 
 var searchPostAppend = document.getElementById("searchPost")
 
-if (storageInput) {
-    storedInput.forEach(function() {
-    liEl.textContent = storedInput;
-
-    var ulEl = document.createElement("ul")
-    var liEl = document.createElement('li')
-    searchPostAppend.appendChild('ulEl')
-    ulEl.appendChild('li')
-})
-}
 
 
-//Buttons
-var searchButton = document.getElementById("searchBtn")
-searchButton.addEventListener("click", currentWeather)
-
-var searchPostAppend = document.getElementById("searchPost")
+//////////////////////////////////
 
 //selector City current variables
 var dateEl = document.getElementById("cityDate")
@@ -196,10 +238,4 @@ var box5Temp = document.querySelector("#box5 .forecastTemp");
 var box5Wind = document.querySelector("#box5 .forecastWind");
 var box5Humidity = document.querySelector("#box5 .forecastHumidity");
 var box5Icon = document.querySelector("#box5 .forecastIcon");
-
-
-// This will be how we get names to appear on the populated page 
-// will need to do localStorage.getItem, setItem for each new search.This
-// localStorage.getItem("city")
-// localStorage.setItem("city", citysearch)
 
