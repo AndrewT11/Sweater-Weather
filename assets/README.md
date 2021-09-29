@@ -34,7 +34,7 @@ THEN I am again presented with current and future conditions for that city
 
 The following image shows the web application's appearance and functionality:
 
-[Weather App Demo](./Assets/sweater-weather.gif)
+[Weather App Demo](Assets/sweater-weather.gif)
 
 ## Grading Requirements
 
