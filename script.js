@@ -37,6 +37,29 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + 
             })
                 .then(function(data) {
                     console.log(data)
+                    box1Icon = data.list[4].weather[0].icon
+                    box2Icon = data.list[12].weather[0].icon
+                    box3Icon = data.list[20].weather[0].icon
+                    box4Icon = data.list[28].weather[0].icon
+                    box5Icon = data.list[36].weather[0].icon
+
+                    var box1IconUrl = `http://openweathermap.org/img/wn/${box1Icon}@2x.png`;
+                    var box2IconUrl = `http://openweathermap.org/img/wn/${box2Icon}@2x.png`;
+                    var box3IconUrl = `http://openweathermap.org/img/wn/${box3Icon}@2x.png`;
+                    var box4IconUrl = `http://openweathermap.org/img/wn/${box4Icon}@2x.png`;
+                    var box5IconUrl = `http://openweathermap.org/img/wn/${box5Icon}@2x.png`;
+
+                    var boxImg1 = document.getElementById('forecastIcon1');
+                    var boxImg2 = document.getElementById('forecastIcon2');
+                    var boxImg3 = document.getElementById('forecastIcon3');
+                    var boxImg4 = document.getElementById('forecastIcon4');
+                    var boxImg5 = document.getElementById('forecastIcon5');
+
+                    boxImg1.src = box1IconUrl;
+                    boxImg2.src = box2IconUrl;
+                    boxImg3.src = box3IconUrl;
+                    boxImg4.src = box4IconUrl;
+                    boxImg5.src = box5IconUrl;
                 
                 //5-day forecast code
                 box1Temp.innerHTML = "Temperature: " + Math.floor(data.list[4].main.temp*(9/5)-459.67) + "°F";
