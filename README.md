@@ -40,11 +40,6 @@ THEN I am again presented with current and future conditions for that city<br>
 ## Screenshot
 ![Weather Demo](assets/sweater-weather.gif)
 
-## Issues
-* Past search history not shown
-* icons for weather do not appear
-
-
 ## Links
 * [Deployed Website Link](https://andrewt11.github.io/Sweater-Weather/)
 * [Code Repository Link](https://github.com/AndrewT11/Sweater-Weather)
