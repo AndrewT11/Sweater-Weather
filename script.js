@@ -10,21 +10,21 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + 
         }
     })
         .then(function(data) {
-            console.log(data);
+            // console.log(data);
             
             citySearch.innerHTML = "City: " + city;
             currentTempEl.innerHTML = "Temperature: " + Math.floor(data.main.temp*(9/5)-459.67) + "°F";
             currentWindEl.innerHTML = "Wind Speed: " + data.wind.speed + " mph";
             currentHumidityEl.innerHTML = "Humidity: " + data.main.humidity + "%";
             dateEl.innerHTML = "Date: " + moment().format('MMM Do YYYY');
-            // icon = data.weather[0].icon;
-            var { description, icon } = data.weather[0];
+         
+
+            // var { description, icon } = data.weather[0];
+            var icon = data.weather[0].icon;
+            var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
             var iconImg = document.getElementById('icon');
             iconImg.src = iconUrl;
-            var iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-
-
+            
             //needed for 5-day forecast. Can only be called by city ID, not name.
             var cityID = data.id;
 
