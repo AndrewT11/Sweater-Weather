@@ -36,12 +36,13 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + 
                 }
             })
                 .then(function(data) {
-                    console.log(data)
-                    box1Icon = data.list[4].weather[0].icon
-                    box2Icon = data.list[12].weather[0].icon
-                    box3Icon = data.list[20].weather[0].icon
-                    box4Icon = data.list[28].weather[0].icon
-                    box5Icon = data.list[36].weather[0].icon
+                    console.log(data.list)
+                    // Icons for 5 day forecast
+                    box1Icon = data.list[6].weather[0].icon
+                    box2Icon = data.list[14].weather[0].icon
+                    box3Icon = data.list[22].weather[0].icon
+                    box4Icon = data.list[30].weather[0].icon
+                    box5Icon = data.list[38].weather[0].icon
 
                     var box1IconUrl = `http://openweathermap.org/img/wn/${box1Icon}@2x.png`;
                     var box2IconUrl = `http://openweathermap.org/img/wn/${box2Icon}@2x.png`;
